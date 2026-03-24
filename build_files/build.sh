@@ -13,7 +13,19 @@ set -ouex pipefail
 dnf5 remove -y code
 
 # this installs a package from fedora repos
-dnf5 install -y keepassxc
+dnf5 install -y keepassxc \
+        qemu \
+        libvirt \
+        guestfs-tools \
+        rocm-hip \
+        rocm-opencl \
+        rocm-clinfo
+
+dnf5 -y --setopt=install_weak_deps=False install \
+        rocm-hip \
+        rocm-opencl \
+        rocm-clinfo \
+        rocm-smi 
 
 # Prepa for future upgrades
 # dnf5 versionlock add gamescope
