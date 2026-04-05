@@ -10,22 +10,24 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # remove packages
-dnf5 remove -y code
+# dnf5 remove -y code
 
 # this installs a package from fedora repos
-dnf5 install -y keepassxc \
+dnf5 install -y keepassxc peazip \
         qemu \
         libvirt \
         guestfs-tools \
         rocm-hip \
         rocm-opencl \
-        rocm-clinfo
+        rocm-clinfo \
+        && /ctx/clean.sh
 
 dnf5 -y --setopt=install_weak_deps=False install \
         rocm-hip \
         rocm-opencl \
         rocm-clinfo \
-        rocm-smi 
+        rocm-smi \
+        && /ctx/clean.sh
 
 # Prepa for future upgrades
 # dnf5 versionlock add gamescope
