@@ -13,7 +13,7 @@ This specific image is a temporary solution until bazzite-dx catches up with baz
 The full list of modification can be found in `build_files/build.sh`
 
 #### Trigger
-This image is built weekly on saturdays. Last 4 images are kept.
+This image is built weekly on Saturdays. Last 4 images are kept.
 
 #### Added Packages (restored deleted packages from the bazzite:43)
 - keepassxc (no enable passkey integration with web browsers)
@@ -61,10 +61,10 @@ If you have questions, try the following spaces:
 The [Containerfile](./Containerfile) defines the operations used to customize the selected image.
 
 ### build.sh
-The [build.sh](./build_files/build.sh) file is called from your Containerfile. It is where packages are installed and other customizations are made.
+The [build.sh](./build_files/build.sh) file is called from a Containerfile. It is where packages are installed, and other customizations are made.
 
 ### build.yml
-The [build.yml](./.github/workflows/build.yml) Github Actions workflow creates the custom OCI image and publishes it to the Github Container Registry (GHCR).
+The [build.yml](./.github/workflows/build.yml) GitHub Actions workflow creates the custom OCI image and publishes it to the GitHub Container Registry (GHCR).
 
 ## Justfile Documentation
 
