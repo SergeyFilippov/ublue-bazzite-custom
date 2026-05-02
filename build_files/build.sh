@@ -10,17 +10,19 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # remove packages
-# dnf5 remove -y code
+dnf5 remove -y code || true
 
 # this installs a package from fedora repos
 dnf5 install -y keepassxc peazip \
         qemu \
-        libvirt \
+        libvirt virt-manager \
         guestfs-tools \
         rocm-hip \
         rocm-opencl \
         rocm-clinfo \
         && /ctx/clean.sh
+
+#dnf5 group install virtualization
 
 dnf5 -y --setopt=install_weak_deps=False install \
         rocm-hip \
