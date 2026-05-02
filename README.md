@@ -10,6 +10,7 @@ This specific image is a temporary solution until bazzite-dx catches up with baz
 - `ghcr.io/ublue-os/bazzite:stable`
 
 ### Modifications
+The full list of modification can be found in `build_files/build.sh`
 
 #### Trigger
 This image is built weekly on saturdays. Last 4 images are kept.
@@ -27,6 +28,25 @@ This image is built weekly on saturdays. Last 4 images are kept.
 
 #### Removed Packages (please, use the version from homebrew ublue-tap)
 - code
+
+#### How-to
+
+##### Rebase to this image:
+```shell
+sudo rpm-ostree rebase ostree-image-signed:docker://ghcr.io/sergeyfilippov/ublue-bazzite-custom:custom
+```
+
+##### Rebase back (just replace package name in the end of the one you need):
+```shell
+# regular bazzite
+sudo rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite:stable
+# dx version
+sudo rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-dx:stable
+```
+
+##### How to install code:
+ 1. Add ublue tap to homebrew: `eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && brew tap ublue-os/tap`
+ 2. Install desired application: `brew install --cask vscodium-linux` or `brew install --cask visual-studio-code-linux` (more info here: https://github.com/ublue-os/homebrew-tap)
 
 ## Community
 
