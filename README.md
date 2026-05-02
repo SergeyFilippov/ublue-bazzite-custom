@@ -11,6 +11,9 @@ This specific image is a temporary solution until bazzite-dx catches up with baz
 
 ### Modifications
 
+#### Trigger
+This image is built weekly on saturdays. Last 4 images are kept.
+
 #### Added Packages (restored deleted packages from the bazzite:43)
 - keepassxc (no enable passkey integration with web browsers)
 - qemu
