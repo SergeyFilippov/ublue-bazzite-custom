@@ -22,7 +22,12 @@ dnf5 install -y keepassxc peazip \
         rocm-clinfo \
         && /ctx/clean.sh
 
-#dnf5 group install virtualization
+# add required users for virtualization
+systemd-sysusers qemu.conf
+
+# enable services
+systemctl enable libvirtd
+systemctl enable podman.socket
 
 dnf5 -y --setopt=install_weak_deps=False install \
         rocm-hip \
