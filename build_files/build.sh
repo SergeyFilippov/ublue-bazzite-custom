@@ -13,7 +13,7 @@ set -ouex pipefail
 dnf5 remove -y code || true
 
 # this installs a package from fedora repos
-dnf5 install -y keepassxc peazip \
+dnf5 install -y keepassxc peazip git \
         qemu \
         libvirt virt-manager \
         guestfs-tools \
