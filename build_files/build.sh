@@ -17,9 +17,6 @@ dnf5 install -y keepassxc peazip \
         qemu \
         libvirt virt-manager \
         guestfs-tools \
-        rocm-hip \
-        rocm-opencl \
-        rocm-clinfo \
         && /ctx/clean.sh
 
 # add required users for virtualization
@@ -30,9 +27,6 @@ systemctl enable libvirtd
 systemctl enable podman.socket
 
 dnf5 -y --setopt=install_weak_deps=False install \
-        rocm-hip \
-        rocm-opencl \
-        rocm-clinfo \
         rocm-smi \
         && /ctx/clean.sh
 
