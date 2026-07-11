@@ -13,10 +13,10 @@ set -ouex pipefail
 dnf5 remove -y code || true
 
 # this installs a package from fedora repos
-dnf5 install -y keepassxc peazip git \
-        qemu \
-        libvirt virt-manager \
-        guestfs-tools \
+dnf5 install -y keepassxc peazip git git-lfs \
+        qemu libvirt virt-manager guestfs-tools \
+        podman-compose ffmpeg bc \
+        glibc libgcc ca-certificates openssl-libs libstdc++ libicu tzdata krb5-libs zlib dotnet-sdk-10.0 \
         && /ctx/clean.sh
 
 # add required users for virtualization
