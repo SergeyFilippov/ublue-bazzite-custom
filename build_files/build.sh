@@ -19,9 +19,10 @@ dnf5 remove -y code || true
 dnf5 install -y keepassxc peazip git git-lfs \
         qemu libvirt virt-manager guestfs-tools \
         podman-compose ffmpeg bc \
-        netbird \
         glibc libgcc ca-certificates openssl-libs libstdc++ libicu tzdata krb5-libs zlib dotnet-sdk-10.0 \
         && /ctx/clean.sh
+
+dnf5 install -y --setopt=tsflags=noscripts netbird && /ctx/clean.sh
 
 # add required users for virtualization
 systemd-sysusers qemu.conf
