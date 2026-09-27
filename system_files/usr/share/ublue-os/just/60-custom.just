@@ -5,11 +5,13 @@ setup-netbird:
         sudo /usr/bin/netbird service install || true
     fi
     sudo /usr/bin/netbird service start || true
+    sudo systemctl enable --now netbird.service
     echo "Netbird service installed and started."
 
 # Stop and remove Netbird service
 remove-netbird:
     #!/usr/bin/bash
+    sudo systemctl disable --now netbird.service
     sudo /usr/bin/netbird service stop || true
     sudo /usr/bin/netbird service uninstall || true
     echo "Netbird service stopped and removed."
