@@ -23,9 +23,11 @@ dnf5 install -y keepassxc peazip git git-lfs \
         && /ctx/clean.sh
 
 dnf5 install -y --setopt=tsflags=noscripts netbird && /ctx/clean.sh
+dnf5 install -y zerotier-one && /ctx/clean.sh
 
-# add required users for virtualization
+# add required users for virtualization and zerotier
 systemd-sysusers qemu.conf
+systemd-sysusers zerotier-one.conf
 
 # enable services
 systemctl enable libvirtd
